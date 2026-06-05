@@ -1,0 +1,118 @@
+1)
+  #include <stdio.h>
+
+int main() {
+    int num, i, sum = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+    for(i = 1; i <= num / 2; i++) {
+        if(num % i == 0) {
+            sum += i; 
+        }
+    }
+    if(sum == num && num > 0) {
+        printf("%d is a perfect number.\n", num);
+    } else {
+        printf("%d is NOT a perfect number.\n", num);
+    }
+
+    return 0;
+}
+
+2)
+
+  #include <stdio.h>
+
+int main() {
+    int originalNum, num, rem, sum = 0;
+    long fact;
+    printf("Enter an integer: ");
+    scanf("%d", &originalNum);
+    num = originalNum;
+    while (num > 0) {
+        rem = num % 10;  
+        fact = 1;
+        for (int i = 1; i <= rem; i++) {
+            fact *= i;
+        }
+        sum += fact;
+        num /= 10;       
+    }
+
+    if (sum == originalNum) {
+        printf("%d is a Strong Number.\n", originalNum);
+    } else {
+        printf("%d is NOT a Strong Number.\n", originalNum);
+    }
+
+    return 0;
+}
+
+3)
+  #include <stdio.h>
+
+void printPrimeFactors(int n) {
+    while (n % 2 == 0) {
+        printf("%d ", 2);
+        n = n / 2;
+    }
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            printf("%d ", i);
+            n = n / i;
+        }
+    }
+    if (n > 2) {
+        printf("%d ", n);
+    }
+    printf("\n");
+}
+
+int main() {
+    int num;
+    printf("Enter a positive integer: ");
+    if (scanf("%d", &num) == 1 && num > 1) {
+        printf("Prime factors of %d are: ", num);
+        printPrimeFactors(num);
+    } else {
+        printf("Please enter a valid integer greater than 1.\n");
+    }
+    return 0;
+}
+
+4)
+
+  #include <stdio.h>
+long long getLargestPrimeFactor(long long n) {
+    long long maxPrime = -1;
+    while (n % 2 == 0) {
+        maxPrime = 2;
+        n /= 2;
+    }
+    for (long long i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            maxPrime = i;
+            n /= i;
+        }
+    }
+    if (n > 2) {
+        maxPrime = n;
+    }
+    return maxPrime;
+}
+
+int main() {
+    long long num;
+    
+    printf("Enter a positive integer: ");
+    if (scanf("%lld", &num) != 1 || num <= 1) {
+        printf("Please enter a valid integer greater than 1.\n");
+        return 1;
+    }
+
+    long long result = getLargestPrimeFactor(num);
+    printf("The largest prime factor of %lld is: %lld\n", num, result);
+
+    return 0;
+}
+  
