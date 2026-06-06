@@ -1,0 +1,77 @@
+1)
+#include <stdio.h>
+
+int main() {
+    int decimal, binary[32], i = 0;
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimal);
+    while (decimal > 0) {
+        binary[i++] = decimal % 2;
+        decimal /= 2;
+    }
+    printf("Binary equivalent: ");
+    for (int j = i - 1; j >= 0; j--)
+        printf("%d", binary[j]);
+    printf("\n");
+    return 0;
+}
+
+2)
+  #include <stdio.h>
+#include <math.h>
+
+int main() {
+    long long binary;
+    int decimal = 0, i = 0, remainder;
+    printf("Enter a binary number: ");
+    scanf("%lld", &binary);
+    while (binary != 0) {
+        remainder = binary % 10;
+        binary /= 10;
+        decimal += remainder * pow(2, i);
+        ++i;
+    }
+    printf("Decimal equivalent: %d\n", decimal);
+
+    return 0;
+}
+
+4)
+  #include <stdio.h>
+int main()
+{
+    int i, a=1,n,x;
+    printf("Enter the value of n:");
+    scanf("%d",&n);
+    printf("Enter the value of x:");
+    scanf("%d",&x);
+    for(i=1;i<=n;i++)
+    {
+        a = x*a;
+    }
+    printf("Value: %d", a);
+    return 0;
+}
+
+3)
+
+  #include <stdio.h>
+
+int countSetBits(unsigned int num)
+{
+    int count = 0;
+    while (num) {
+        count += num & 1; 
+        num >>= 1; 
+    }
+    return count;
+}
+
+int main()
+{
+    unsigned int num = 103; 
+    int result = countSetBits(num);
+    printf("Number of set bits: %d\n", result);
+
+    return 0;
+}
