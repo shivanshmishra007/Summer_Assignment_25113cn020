@@ -1,0 +1,70 @@
+1)
+  #include<stdio.h>
+long int factorial(int n);
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d",&n);
+    printf("Factorial of %d = %ld", n,factorial(n));
+    return 0;
+}
+
+long int factorial(int n) {
+    if (n>=1)
+        return n*factorial(n-1);
+    else
+        return 1;
+}
+
+2)
+  #include <stdio.h>
+int Fibo(int n){
+    if (n <= 1){
+        return n;
+    }
+    return nthFibo(n - 1) + nthFibo(n - 2);
+}
+int main(){
+    int n = 5;
+    int result = nthFibo(n);
+    printf("%d\n", result);
+    return 0;
+}
+
+3)
+
+#include <stdio.h>
+int sum_of_digit(int n)
+{
+    if (n == 0)
+       return 0;
+    return (n % 10 + sum_of_digit(n / 10));
+}
+int main()
+{
+    int num = 12345;
+    int result = sum_of_digit(num);
+    printf("%d", result);
+    return 0;
+}
+
+4)
+  #include <stdio.h>
+int revNum=0, r;
+int reverse_function(int num){
+  if(num){
+    r=num%10;
+    revNum=revNum*10+r;
+    reverse_function(num/10);
+  }
+  else
+    return revNum;
+}
+int main(){
+  int num, reverse_number;
+  printf("Enter any number:");
+  scanf("%d",&num);
+  reverse_number = reverse_function(num);
+  printf("The reverse of entered number is :%d",reverse_number);
+  return 0;
+}
